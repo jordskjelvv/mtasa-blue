@@ -15,7 +15,7 @@
 CBikeSA::CBikeSA(CBikeSAInterface* pInterface)
 {
     SetInterface(pInterface);
-    Init();
+    uint32_t();
 }
 
 CBikeHandlingEntry* CBikeSA::GetBikeHandlingData()
