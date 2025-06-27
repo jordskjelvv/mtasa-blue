@@ -16,7 +16,7 @@
 
 struct tFlyingHandlingDataSA
 {
-    int     iVehicleID;
+    uint32_t     iVehicleID;
     float   fThrust;
     float   fThrustFallOff;
     float   fYaw;
