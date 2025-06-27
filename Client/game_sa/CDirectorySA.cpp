@@ -72,7 +72,7 @@ DirectoryInfoSA* CDirectorySAInterface::GetModelEntry(const char* fileName)
     return nullptr;
 }
 
-DirectoryInfoSA* CDirectorySAInterface::GetModelEntry(std::uint16_t modelId)
+DirectoryInfoSA* CDirectorySAInterface::GetModelEntry(std::uint32_t modelId)
 {
     if (m_numEntries == 0)
         return nullptr;
@@ -85,7 +85,7 @@ DirectoryInfoSA* CDirectorySAInterface::GetModelEntry(std::uint16_t modelId)
     return entry;
 }
 
-bool CDirectorySAInterface::SetModelStreamingSize(std::uint16_t modelId, std::uint16_t size)
+bool CDirectorySAInterface::SetModelStreamingSize(std::uint32_t modelId, std::uint16_t size)
 {
     DirectoryInfoSA* entry = GetModelEntry(modelId);
 
@@ -97,7 +97,7 @@ bool CDirectorySAInterface::SetModelStreamingSize(std::uint16_t modelId, std::ui
 }
 
 
-std::uint16_t CDirectorySAInterface::GetModelStreamingSize(std::uint16_t modelId)
+std::uint16_t CDirectorySAInterface::GetModelStreamingSize(std::uint32_t modelId)
 {
     DirectoryInfoSA* entry = GetModelEntry(modelId);
 
