@@ -130,7 +130,7 @@ CColStore::BoundingBox CColStoreSA::GetBoundingBox(CollisionSlot slot)
     return function(slot);
 }
 
-void CColStoreSA::IncludeModelIndex(CollisionSlot slot, std::uint16_t model)
+void CColStoreSA::IncludeModelIndex(CollisionSlot slot, std::uint32_t model)
 {
     using Signature = void(__cdecl*)(CollisionSlot, int);
     const auto function = reinterpret_cast<Signature>(0x410820);
