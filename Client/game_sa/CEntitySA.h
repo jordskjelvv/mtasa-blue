@@ -318,8 +318,19 @@ public:
 
     // CEntitySA interface
     virtual void OnChangingPosition(const CVector& vecNewPosition) {}
+    uint32_t GetModelIndexExtended() const
+    {
+        return m_nModelIndexExtended;
+    }
+
+    void SetModelIndexExtended(uint32_t modelID)
+    {
+        m_nModelIndexExtended = modelID;
+        GetInterface()->m_nModelIndex = static_cast<WORD>(modelID & 0xFFFF); // Безопасная запись для GTA
+    }
 
 private:
+    uint32_t m_nModelIndexExtended = 0; // Храним полный 32-бит ID
     void*   m_pStoredPointer;
     CVector m_LastGoodPosition;
 };
