@@ -15,7 +15,7 @@
 
 struct tBikeHandlingDataSA
 {
-    int   iVehicleID;
+    uint32_t   iVehicleID;
     float fLeanFwdCOM;
     float fLeanFwdForce;
     float fLeanBackCOM;
