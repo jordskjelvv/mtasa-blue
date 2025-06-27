@@ -34,6 +34,6 @@ public:
     static void StaticSetHooks();
 };
 
-bool                CFileLoader_LoadAtomicFile(RwStream* stream, unsigned int modelId);
+bool                CFileLoader_LoadAtomicFile(RwStream* stream, unsigned uint32_t modelId);
 RpAtomic*           CFileLoader_SetRelatedModelInfoCB(RpAtomic* atomic, SRelatedModelInfo* pRelatedModelInfo);
 CEntitySAInterface* CFileLoader_LoadObjectInstance(const char* szLine);
