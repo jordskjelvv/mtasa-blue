@@ -23,23 +23,23 @@ public:
 
     SBuildingRemoval* GetBuildingRemoval(CEntitySAInterface* pInterface) override;
 
-    void RemoveBuilding(uint16_t usModelToRemove, float fDistance, float fX, float fY, float fZ, char cInterior, size_t* pOutAmount = NULL) override;
-    bool RestoreBuilding(uint16_t usModelToRestore, float fDistance, float fX, float fY, float fZ, char cInterior, size_t* pOutAmount = NULL) override;
+    void RemoveBuilding(uint32_t usModelToRemove, float fDistance, float fX, float fY, float fZ, char cInterior, size_t* pOutAmount = NULL) override;
+    bool RestoreBuilding(uint32_t usModelToRestore, float fDistance, float fX, float fY, float fZ, char cInterior, size_t* pOutAmount = NULL) override;
     bool IsRemovedModelInRadius(SIPLInst* pInst) override;
-    bool IsModelRemoved(uint16_t modelID) override;
+    bool IsModelRemoved(uint32_t modelID) override;
     void ClearRemovedBuildingLists(uint* pOutAmount = NULL) override;
     void AddDataBuilding(CEntitySAInterface* pInterface) override;
     void RemoveWorldBuildingFromLists(CEntitySAInterface* pInterface) override;
     void AddBinaryBuilding(CEntitySAInterface* pInterface) override;
     bool IsObjectRemoved(CEntitySAInterface* pInterface) override;
-    bool IsDataModelRemoved(uint16_t usModelID) override;
+    bool IsDataModelRemoved(uint32_t usModelID) override;
     bool IsEntityRemoved(CEntitySAInterface* pInterface) override;
     void DropCaches();            
 
 private:
-    std::multimap<uint16_t, SBuildingRemoval*>*               m_pBuildingRemovals;
-    std::multimap<uint16_t, sDataBuildingRemovalItem*>*       m_pDataBuildings;
-    std::multimap<uint16_t, sBuildingRemovalItem*>*           m_pBinaryBuildings;
+    std::multimap<uint32_t, SBuildingRemoval*>*               m_pBuildingRemovals;
+    std::multimap<uint32_t, sDataBuildingRemovalItem*>*       m_pDataBuildings;
+    std::multimap<uint32_t, sBuildingRemovalItem*>*           m_pBinaryBuildings;
     std::map<DWORD, bool>                                     m_pRemovedEntities;
     std::map<DWORD, bool>                                     m_pAddedEntities;
 };
