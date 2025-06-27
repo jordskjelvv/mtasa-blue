@@ -482,7 +482,7 @@ inner:
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-void _cdecl OnCStreamingRemoveModel(DWORD calledFrom, ushort usModelId)
+void _cdecl OnCStreamingRemoveModel(DWORD calledFrom, uint32_t usModelId)
 {
     // Tell client to check for things going away
     if (pGameModelRemoveHandler)
