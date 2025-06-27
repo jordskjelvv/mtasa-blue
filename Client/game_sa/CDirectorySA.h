@@ -13,8 +13,8 @@
 struct DirectoryInfoSA
 {
     std::uint32_t m_offset;
-    std::uint16_t m_streamingSize;
-    std::uint16_t m_sizeInArchive;
+    std::uint32_t m_streamingSize;
+    std::uint32_t m_sizeInArchive;
     char          m_name[24];
 };
 
@@ -25,9 +25,9 @@ class CDirectorySAInterface
         bool             RemoveEntry(const char* fileName);
 
         DirectoryInfoSA* GetModelEntry(const char* fileName);
-        DirectoryInfoSA* GetModelEntry(std::uint16_t modelId);
-        bool             SetModelStreamingSize(std::uint16_t modelId, std::uint16_t size);
-        std::uint16_t    GetModelStreamingSize(std::uint16_t modelId);
+        DirectoryInfoSA* GetModelEntry(std::uint32_t modelId);
+        bool             SetModelStreamingSize(std::uint32_t modelId, std::uint32_t size);
+        std::uint32_t    GetModelStreamingSize(std::uint32_t modelId);
 
     private:
         DirectoryInfoSA* m_entries{};
