@@ -78,6 +78,7 @@ CEntitySA::CEntitySA()
     BeingDeleted = false;
     DoNotRemoveFromGame = false;
     m_pStoredPointer = NULL;
+    m_nModelIndexExtended = 0; // Безопасная инициализация
 }
 
 void CEntitySA::UpdateRpHAnim()
