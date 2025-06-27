@@ -60,7 +60,7 @@ CClientEntity* CBuildingsPoolSA::GetClientBuilding(CBuildingSAInterface* pGameIn
     return m_buildingPool.entities[poolIndex].pClientEntity;
 }
 
-CBuilding* CBuildingsPoolSA::AddBuilding(CClientBuilding* pClientBuilding, uint16_t modelId, CVector* vPos, CVector* vRot, uint8_t interior)
+CBuilding* CBuildingsPoolSA::AddBuilding(CClientBuilding* pClientBuilding, uint32_t modelId, CVector* vPos, CVector* vRot, uint8_t interior)
 {
     if (!HasFreeBuildingSlot())
         return nullptr;
@@ -146,7 +146,7 @@ void CBuildingsPoolSA::RemoveBuilding(CBuilding* pBuilding)
     // Remove building from world
     pGame->GetWorld()->Remove(pInterface, CBuildingPool_Destructor);
 
-    std::uint16_t modelId = pInterface->m_nModelIndex;
+    std::uint32_t modelId = pInterface->m_nModelIndex;
 
     // Call virtual destructor
     pInterface->Destructor(false);
