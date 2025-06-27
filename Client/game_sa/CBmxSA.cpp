@@ -15,5 +15,5 @@
 CBmxSA::CBmxSA(CBmxSAInterface* pInterface)
 {
     SetInterface(pInterface);
-    Init();
+    uint32_t();
 }
