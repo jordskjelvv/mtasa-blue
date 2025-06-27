@@ -16,7 +16,7 @@
 
 struct tBoatHandlingDataSA
 {
-    int     iVehicleID;
+    uint32_t     iVehicleID;
     float   fThrustY;
     float   fThrustZ;
     float   fThrustAppZ;
