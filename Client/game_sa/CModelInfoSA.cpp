@@ -27,13 +27,13 @@ CBaseModelInfoSAInterface** CModelInfoSAInterface::ms_modelInfoPtrs = (CBaseMode
 CBaseModelInfoSAInterface** ppModelInfo = (CBaseModelInfoSAInterface**)ARRAY_ModelInfo;
 
 std::map<unsigned short, int>                                         CModelInfoSA::ms_RestreamTxdIDMap;
-std::map<DWORD, float>                                                CModelInfoSA::ms_ModelDefaultLodDistanceMap;
-std::map<DWORD, unsigned short>                                       CModelInfoSA::ms_ModelDefaultFlagsMap;
-std::map<DWORD, BYTE>                                                 CModelInfoSA::ms_ModelDefaultAlphaTransparencyMap;
+std::map<std::uint32_t, float>                                                CModelInfoSA::ms_ModelDefaultLodDistanceMap;
+std::map<std::uint32_t, unsigned short>                                       CModelInfoSA::ms_ModelDefaultFlagsMap;
+std::map<std::uint32_t, BYTE>                                                 CModelInfoSA::ms_ModelDefaultAlphaTransparencyMap;
 std::unordered_map<std::uint32_t, std::map<VehicleDummies, CVector>> CModelInfoSA::ms_ModelDefaultDummiesPosition;
 std::map<CTimeInfoSAInterface*, CTimeInfoSAInterface*>                CModelInfoSA::ms_ModelDefaultModelTimeInfo;
-std::unordered_map<DWORD, unsigned short>                             CModelInfoSA::ms_OriginalObjectPropertiesGroups;
-std::unordered_map<DWORD, std::pair<float, float>>                    CModelInfoSA::ms_VehicleModelDefaultWheelSizes;
+std::unordered_map<std::uint32_t, unsigned short>                             CModelInfoSA::ms_OriginalObjectPropertiesGroups;
+std::unordered_map<std::uint32_t, std::pair<float, float>>                    CModelInfoSA::ms_VehicleModelDefaultWheelSizes;
 std::map<unsigned short, int>                                         CModelInfoSA::ms_DefaultTxdIDMap;
 
 union tIdeFlags
@@ -107,8 +107,8 @@ CBaseModelInfoSAInterface* CModelInfoSA::GetInterface()
 
 bool CModelInfoSA::IsBoat()
 {
-    DWORD dwFunction = FUNC_IsBoatModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsBoatModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -122,8 +122,8 @@ bool CModelInfoSA::IsBoat()
 
 bool CModelInfoSA::IsCar()
 {
-    DWORD dwFunction = FUNC_IsCarModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsCarModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -137,8 +137,8 @@ bool CModelInfoSA::IsCar()
 
 bool CModelInfoSA::IsTrain()
 {
-    DWORD dwFunction = FUNC_IsTrainModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsTrainModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -152,8 +152,8 @@ bool CModelInfoSA::IsTrain()
 
 bool CModelInfoSA::IsHeli()
 {
-    DWORD dwFunction = FUNC_IsHeliModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsHeliModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -167,8 +167,8 @@ bool CModelInfoSA::IsHeli()
 
 bool CModelInfoSA::IsPlane()
 {
-    DWORD dwFunction = FUNC_IsPlaneModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsPlaneModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -182,8 +182,8 @@ bool CModelInfoSA::IsPlane()
 
 bool CModelInfoSA::IsBike()
 {
-    DWORD dwFunction = FUNC_IsBikeModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsBikeModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -197,8 +197,8 @@ bool CModelInfoSA::IsBike()
 
 bool CModelInfoSA::IsFakePlane()
 {
-    DWORD dwFunction = FUNC_IsFakePlaneModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsFakePlaneModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -212,8 +212,8 @@ bool CModelInfoSA::IsFakePlane()
 
 bool CModelInfoSA::IsMonsterTruck()
 {
-    DWORD dwFunction = FUNC_IsMonsterTruckModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsMonsterTruckModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -227,8 +227,8 @@ bool CModelInfoSA::IsMonsterTruck()
 
 bool CModelInfoSA::IsQuadBike()
 {
-    DWORD dwFunction = FUNC_IsQuadBikeModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsQuadBikeModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -242,8 +242,8 @@ bool CModelInfoSA::IsQuadBike()
 
 bool CModelInfoSA::IsBmx()
 {
-    DWORD dwFunction = FUNC_IsBmxModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsBmxModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -257,8 +257,8 @@ bool CModelInfoSA::IsBmx()
 
 bool CModelInfoSA::IsTrailer()
 {
-    DWORD dwFunction = FUNC_IsTrailerModel;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwFunction = FUNC_IsTrailerModel;
+    std::uint32_t modelID = m_dwModelID;
     bool  bReturn = false;
     _asm
     {
@@ -276,7 +276,7 @@ BYTE CModelInfoSA::GetVehicleType() const noexcept
     if (!IsVehicle())
         return -1;
 
-    auto GetVehicleModelType = reinterpret_cast<BYTE(__cdecl*)(DWORD)>(FUNC_IsVehicleModelType);
+    auto GetVehicleModelType = reinterpret_cast<BYTE(__cdecl*)(std::uint32_t)>(FUNC_IsVehicleModelType);
     return GetVehicleModelType(m_dwModelID);
 }
 
@@ -312,10 +312,10 @@ bool CModelInfoSA::IsUpgrade()
 
 char* CModelInfoSA::GetNameIfVehicle()
 {
-    DWORD dwModelInfo = (DWORD)ARRAY_ModelInfo;
-    DWORD dwFunc = FUNC_CText_Get;
-    DWORD ModelID = m_dwModelID;
-    DWORD dwReturn = 0;
+    std::uint32_t dwModelInfo = (std::uint32_t)ARRAY_ModelInfo;
+    std::uint32_t dwFunc = FUNC_CText_Get;
+    std::uint32_t modelID = m_dwModelID;
+    std::uint32_t dwReturn = 0;
 
         _asm
         {
@@ -325,7 +325,7 @@ char* CModelInfoSA::GetNameIfVehicle()
 
             mov     ebx, ModelID
             lea     ebx, [ebx*4]
-            add     ebx, dword ptr[ARRAY_ModelInfo]
+            add     ebx, std::uint32_t ptr[ARRAY_ModelInfo]
             mov     eax, [ebx]
             add     eax, 50
 
@@ -344,8 +344,8 @@ char* CModelInfoSA::GetNameIfVehicle()
 
 uint CModelInfoSA::GetAnimFileIndex()
 {
-    DWORD dwFunc = m_pInterface->VFTBL->GetAnimFileIndex;
-    DWORD dwThis = (DWORD)m_pInterface;
+    std::uint32_t dwFunc = m_pInterface->VFTBL->GetAnimFileIndex;
+    std::uint32_t dwThis = (std::uint32_t)m_pInterface;
     uint  uiReturn = 0;
     if (dwFunc)
     {
@@ -712,7 +712,7 @@ void CModelInfoSA::SetModelSpecialType(eModelSpecialType eType, bool bState)
 void CModelInfoSA::StaticResetFlags()
 {
     // Restore default values
-    for (std::map<DWORD, unsigned short>::const_iterator iter = ms_ModelDefaultFlagsMap.begin(); iter != ms_ModelDefaultFlagsMap.end(); ++iter)
+    for (std::map<std::uint32_t, unsigned short>::const_iterator iter = ms_ModelDefaultFlagsMap.begin(); iter != ms_ModelDefaultFlagsMap.end(); ++iter)
     {
         CBaseModelInfoSAInterface* pInterface = ppModelInfo[iter->first];
         if (pInterface)
@@ -730,8 +730,8 @@ void CModelInfoSA::StaticResetFlags()
 
 CBoundingBox* CModelInfoSA::GetBoundingBox()
 {
-    DWORD         dwFunc = FUNC_GetBoundingBox;
-    DWORD         ModelID = m_dwModelID;
+    std::uint32_t         dwFunc = FUNC_GetBoundingBox;
+    std::uint32_t         ModelID = m_dwModelID;
     CBoundingBox* dwReturn = 0;
     _asm
     {
@@ -764,15 +764,15 @@ bool CModelInfoSA::IsAllocatedInArchive() const noexcept
 
 float CModelInfoSA::GetDistanceFromCentreOfMassToBaseOfModel()
 {
-    DWORD dwModelInfo = 0;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t dwModelInfo = 0;
+    std::uint32_t modelID = m_dwModelID;
     float fReturn = 0;
     _asm {
         mov     eax, ModelID
 
         push    ecx
-        mov     ecx, dword ptr[ARRAY_ModelInfo]
-        mov     eax, dword ptr[ecx + eax*4]
+        mov     ecx, std::uint32_t ptr[ARRAY_ModelInfo]
+        mov     eax, std::uint32_t ptr[ecx + eax*4]
         pop     ecx
 
         mov     eax, [eax+20]
@@ -963,7 +963,7 @@ void CModelInfoSA::SetLODDistance(float fDistance, bool bOverrideMaxDistance)
 void CModelInfoSA::StaticResetLodDistances()
 {
     // Restore default values
-    for (std::map<DWORD, float>::const_iterator iter = ms_ModelDefaultLodDistanceMap.begin(); iter != ms_ModelDefaultLodDistanceMap.end(); ++iter)
+    for (std::map<std::uint32_t, float>::const_iterator iter = ms_ModelDefaultLodDistanceMap.begin(); iter != ms_ModelDefaultLodDistanceMap.end(); ++iter)
     {
         CBaseModelInfoSAInterface* pInterface = ppModelInfo[iter->first];
         if (pInterface)
@@ -994,7 +994,7 @@ void CModelInfoSA::StaticFlushPendingRestreamIPL()
 
     for (int i = 0; i < 2 * NUM_StreamSectorRows * NUM_StreamSectorCols; i++)
     {
-        DWORD* pSectorEntry = ((DWORD**)ARRAY_StreamSectors)[i];
+        std::uint32_t* pSectorEntry = ((std::uint32_t**)ARRAY_StreamSectors)[i];
         while (pSectorEntry)
         {
             CEntitySAInterface* pEntity = (CEntitySAInterface*)pSectorEntry[0];
@@ -1010,7 +1010,7 @@ void CModelInfoSA::StaticFlushPendingRestreamIPL()
                 #if MTA_DEBUG
                 assert(static_cast<std::size_t*>(pEntity->GetVTBL())[CEntity_DeleteRwObject_VTBL_OFFSET] != 0x00534030);
                 #endif
-                pSectorEntry = (DWORD*)pSectorEntry[1];
+                pSectorEntry = (std::uint32_t*)pSectorEntry[1];
                 continue;
             }
 
@@ -1022,19 +1022,19 @@ void CModelInfoSA::StaticFlushPendingRestreamIPL()
                     {
                         mov ecx, pEntity
                         mov eax, [ecx]
-                        call dword ptr [eax+20h]
+                        call std::uint32_t ptr [eax+20h]
                     }
                     removedModels.insert(pEntity->m_nModelIndex);
                 }
             }
 
-            pSectorEntry = (DWORD*)pSectorEntry[1];
+            pSectorEntry = (std::uint32_t*)pSectorEntry[1];
         }
     }
 
     for (int i = 0; i < NUM_StreamRepeatSectorRows * NUM_StreamRepeatSectorCols; i++)
     {
-        DWORD* pSectorEntry = ((DWORD**)ARRAY_StreamRepeatSectors)[3 * i + 2];
+        std::uint32_t* pSectorEntry = ((std::uint32_t**)ARRAY_StreamRepeatSectors)[3 * i + 2];
         while (pSectorEntry)
         {
             CEntitySAInterface* pEntity = (CEntitySAInterface*)pSectorEntry[0];
@@ -1046,12 +1046,12 @@ void CModelInfoSA::StaticFlushPendingRestreamIPL()
                     {
                         mov ecx, pEntity
                         mov eax, [ecx]
-                        call dword ptr [eax+20h]
+                        call std::uint32_t ptr [eax+20h]
                     }
                     removedModels.insert(pEntity->m_nModelIndex);
                 }
             }
-            pSectorEntry = (DWORD*)pSectorEntry[1];
+            pSectorEntry = (std::uint32_t*)pSectorEntry[1];
         }
     }
 
@@ -1116,7 +1116,7 @@ void CModelInfoSA::RemoveRef(bool bRemoveExtraGTARef)
         // Remove ref added by GTA.
         if (m_pInterface->usNumberOfRefs > 1)
         {
-            DWORD                      dwFunction = FUNC_RemoveRef;
+            std::uint32_t                      dwFunction = FUNC_RemoveRef;
             CBaseModelInfoSAInterface* pInterface = m_pInterface;
             _asm
             {
@@ -1159,7 +1159,7 @@ bool CModelInfoSA::IsAlphaTransparencyEnabled()
 
 void CModelInfoSA::StaticResetAlphaTransparencies()
 {
-    for (std::map<DWORD, BYTE>::const_iterator iter = ms_ModelDefaultAlphaTransparencyMap.begin(); iter != ms_ModelDefaultAlphaTransparencyMap.end(); iter++)
+    for (std::map<std::uint32_t, BYTE>::const_iterator iter = ms_ModelDefaultAlphaTransparencyMap.begin(); iter != ms_ModelDefaultAlphaTransparencyMap.end(); iter++)
     {
         CBaseModelInfoSAInterface* pInterface = ppModelInfo[iter->first];
         if (pInterface)
@@ -1190,14 +1190,14 @@ short CModelInfoSA::GetAvailableVehicleMod(unsigned short usUpgrade)
     short sreturn = -1;
     if (usUpgrade >= 1000 && usUpgrade <= 1193)
     {
-        DWORD ModelID = m_dwModelID;
+        std::uint32_t modelID = m_dwModelID;
         _asm
         {
             mov     eax, ModelID
 
             push    ecx
-            mov ecx, dword ptr[ARRAY_ModelInfo]
-            mov     eax, dword ptr[ecx + eax*4]
+            mov ecx, std::uint32_t ptr[ARRAY_ModelInfo]
+            mov     eax, std::uint32_t ptr[ecx + eax*4]
             pop     ecx
 
 
@@ -1212,12 +1212,12 @@ short CModelInfoSA::GetAvailableVehicleMod(unsigned short usUpgrade)
 bool CModelInfoSA::IsUpgradeAvailable(eVehicleUpgradePosn posn)
 {
     bool  bRet = false;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t modelID = m_dwModelID;
     _asm
     {
         mov     eax, ModelID
-        mov ecx, dword ptr[ARRAY_ModelInfo]
-        mov     ecx, dword ptr[ecx + eax*4]
+        mov ecx, std::uint32_t ptr[ARRAY_ModelInfo]
+        mov     ecx, std::uint32_t ptr[ecx + eax*4]
 
         mov     eax, posn
         mov     ecx, [ecx+0x5C]
@@ -1238,15 +1238,15 @@ bool CModelInfoSA::IsUpgradeAvailable(eVehicleUpgradePosn posn)
 void CModelInfoSA::SetCustomCarPlateText(const char* szText)
 {
     char* szStoredText;
-    DWORD ModelID = m_dwModelID;
+    std::uint32_t modelID = m_dwModelID;
     _asm
     {
         push    ecx
         mov     ecx, ModelID
 
         push    eax
-        mov     eax, dword ptr[ARRAY_ModelInfo]
-        mov     ecx, dword ptr[eax + ecx*4]
+        mov     eax, std::uint32_t ptr[ARRAY_ModelInfo]
+        mov     ecx, std::uint32_t ptr[eax + ecx*4]
         pop     eax
 
         add     ecx, 40
@@ -1260,16 +1260,16 @@ void CModelInfoSA::SetCustomCarPlateText(const char* szText)
 
 unsigned int CModelInfoSA::GetNumRemaps()
 {
-    DWORD        dwFunc = FUNC_CVehicleModelInfo__GetNumRemaps;
-    DWORD        ModelID = m_dwModelID;
+    std::uint32_t        dwFunc = FUNC_CVehicleModelInfo__GetNumRemaps;
+    std::uint32_t        ModelID = m_dwModelID;
     unsigned int uiReturn = 0;
     _asm
     {
         mov     ecx, ModelID
 
         push    eax
-        mov     eax, dword ptr[ARRAY_ModelInfo]
-        mov     ecx, dword ptr[eax + ecx*4]
+        mov     eax, std::uint32_t ptr[ARRAY_ModelInfo]
+        mov     ecx, std::uint32_t ptr[eax + ecx*4]
         pop     eax
 
         call    dwFunc
@@ -1891,7 +1891,7 @@ __declspec(noinline) void OnMY_NodeNameStreamRead(RwStream* stream, char* pDest,
 // Hook info
 #define HOOKPOS_NodeNameStreamRead                         0x072FA68
 #define HOOKSIZE_NodeNameStreamRead                        15
-DWORD RETURN_NodeNameStreamRead = 0x072FA77;
+std::uint32_t RETURN_NodeNameStreamRead = 0x072FA77;
 void _declspec(naked) HOOK_NodeNameStreamRead()
 {
     _asm
@@ -1919,7 +1919,7 @@ void CModelInfoSA::StaticSetHooks()
 }
 
 // Recursive RwFrame children searching function
-void CModelInfoSA::RwSetSupportedUpgrades(RwFrame* parent, DWORD dwModel)
+void CModelInfoSA::RwSetSupportedUpgrades(RwFrame* parent, std::uint32_t dwModel)
 {
     for (RwFrame* ret = parent->child; ret != NULL; ret = ret->next)
     {
