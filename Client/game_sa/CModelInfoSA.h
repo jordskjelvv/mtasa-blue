@@ -34,7 +34,7 @@ static void* ARRAY_ModelLoaded = (char*)CStreaming__ms_aInfoForModel + 0x10;
 #define     FUNC_LoadWeaponModel            0x4C9910
 #define     FUNC_LoadPedModel               0x4C7340
 
-#define     DWORD_AtomicsReplacerModelID    0xB71840
+#define     std::uint32_t_AtomicsReplacerModelID    0xB71840
 #define     FUNC_AtomicsReplacer            0x537150
 
 // #define     ARRAY_ModelInfo                 0xA9B0C8
@@ -68,9 +68,9 @@ class CBaseModelInfoSAInterface;
 class CModelInfoSAInterface
 {
 public:
-    // Use GetModelInfo(int index) to get model info by id
+    // Use GetModelInfo(std::uint32_t index) to get model info by id
     static CBaseModelInfoSAInterface** ms_modelInfoPtrs;
-    static CBaseModelInfoSAInterface*  GetModelInfo(int index) { return ms_modelInfoPtrs[index]; }
+    static CBaseModelInfoSAInterface*  GetModelInfo(std::uint32_t index) { return ms_modelInfoPtrs[index]; }
 };
 
 /**
@@ -79,26 +79,26 @@ public:
 class CBaseModelInfo_SA_VTBL
 {
 public:
-    DWORD Destructor;
-    DWORD AsAtomicModelInfoPtr;                  // ()
-    DWORD AsDamageAtomicModelInfoPtr;            // ()
-    DWORD AsLodAtomicModelInfoPtr;               // ()
-    DWORD GetModelType;                          // ()           - Not defined in the base
-    DWORD GetTimeInfo;                           // ()
-    DWORD Init;                                  // ()
-    DWORD Shutdown;                              // ()
-    DWORD DeleteRwObject;                        // ()           - Not defined in the base
-    DWORD GetRwModelType;                        // ()           - Not defined in the base
-    DWORD CreateInstance_;                       // (RwMatrix*)   - Not defined in the base
-    DWORD CreateInstance;                        // ()           - Not defined in the base
-    DWORD SetAnimFile;                           // (char const*)
-    DWORD ConvertAnimFileIndex;                  // ()
-    DWORD GetAnimFileIndex;                      // ()
+    std::uint32_t Destructor;
+    std::uint32_t AsAtomicModelInfoPtr;                  // ()
+    std::uint32_t AsDamageAtomicModelInfoPtr;            // ()
+    std::uint32_t AsLodAtomicModelInfoPtr;               // ()
+    std::uint32_t GetModelType;                          // ()           - Not defined in the base
+    std::uint32_t GetTimeInfo;                           // ()
+    std::uint32_t Init;                                  // ()
+    std::uint32_t Shutdown;                              // ()
+    std::uint32_t DeleteRwObject;                        // ()           - Not defined in the base
+    std::uint32_t GetRwModelType;                        // ()           - Not defined in the base
+    std::uint32_t CreateInstance_;                       // (RwMatrix*)   - Not defined in the base
+    std::uint32_t CreateInstance;                        // ()           - Not defined in the base
+    std::uint32_t SetAnimFile;                           // (char const*)
+    std::uint32_t ConvertAnimFileIndex;                  // ()
+    std::uint32_t GetAnimFileIndex;                      // ()
 };
 
 class CAtomicModelInfo_SA_VTBL : public CBaseModelInfo_SA_VTBL
 {
-    DWORD SetAtomic;            // (RpAtomic*)
+    std::uint32_t SetAtomic;            // (RpAtomic*)
 };
 
 class CDamageAtomicModelInfo_SA_VTBL : public CAtomicModelInfo_SA_VTBL
@@ -119,7 +119,7 @@ class CLodTimeModelInfo_SA_VTBL : public CLodAtomicModelInfo_SA_VTBL
 
 class CClumpModelInfo_SA_VTBL : public CBaseModelInfo_SA_VTBL
 {
-    DWORD SetClump;            // (RpClump*)
+    std::uint32_t SetClump;            // (RpClump*)
 };
 
 class CWeaponModelInfo_SA_VTBL : public CClumpModelInfo_SA_VTBL
@@ -337,22 +337,22 @@ class CModelInfoSA : public CModelInfo
 {
 protected:
     CBaseModelInfoSAInterface*                                                   m_pInterface;
-    DWORD                                                                        m_dwModelID;
-    DWORD                                                                        m_dwParentID;
-    DWORD                                                                        m_dwReferences;
-    DWORD                                                                        m_dwPendingInterfaceRef;
+    std::uint32_t                                                                        m_dwModelID;
+    std::uint32_t                                                                        m_dwParentID;
+    std::uint32_t                                                                        m_dwReferences;
+    std::uint32_t                                                                        m_dwPendingInterfaceRef;
     CColModel*                                                                   m_pCustomColModel;
     CColModelSAInterface*                                                        m_pOriginalColModelInterface;
     std::uint16_t                                                                m_originalFlags = 0;
     RpClump*                                                                     m_pCustomClump;
     static std::map<unsigned short, int>                                         ms_RestreamTxdIDMap;
-    static std::map<DWORD, float>                                                ms_ModelDefaultLodDistanceMap;
-    static std::map<DWORD, unsigned short>                                       ms_ModelDefaultFlagsMap;
-    static std::map<DWORD, BYTE>                                                 ms_ModelDefaultAlphaTransparencyMap;
+    static std::map<std::uint32_t, float>                                                ms_ModelDefaultLodDistanceMap;
+    static std::map<std::uint32_t, unsigned short>                                       ms_ModelDefaultFlagsMap;
+    static std::map<std::uint32_t, BYTE>                                                 ms_ModelDefaultAlphaTransparencyMap;
     static std::unordered_map<std::uint32_t, std::map<VehicleDummies, CVector>> ms_ModelDefaultDummiesPosition;
     static std::map<CTimeInfoSAInterface*, CTimeInfoSAInterface*>                ms_ModelDefaultModelTimeInfo;
-    static std::unordered_map<DWORD, unsigned short>                             ms_OriginalObjectPropertiesGroups;
-    static std::unordered_map<DWORD, std::pair<float, float>>                    ms_VehicleModelDefaultWheelSizes;
+    static std::unordered_map<std::uint32_t, unsigned short>                             ms_OriginalObjectPropertiesGroups;
+    static std::unordered_map<std::uint32_t, std::pair<float, float>>                    ms_VehicleModelDefaultWheelSizes;
     static std::map<unsigned short, int>                                         ms_DefaultTxdIDMap;
     SVehicleSupportedUpgrades                                                    m_ModelSupportedUpgrades;
 
@@ -362,7 +362,7 @@ public:
     CBaseModelInfoSAInterface* GetInterface();
     CPedModelInfoSAInterface*  GetPedModelInfoInterface() { return reinterpret_cast<CPedModelInfoSAInterface*>(GetInterface()); }
 
-    DWORD          GetModel() { return m_dwModelID; }
+    std::uint32_t          GetModel() { return m_dwModelID; }
     eModelInfoType GetModelType();
     uint           GetAnimFileIndex();
 
@@ -465,7 +465,7 @@ public:
     // Decreases the collision slot reference counter for the original collision model
     void RemoveColRef() override;
 
-    void SetModelID(DWORD dwModelID) { m_dwModelID = dwModelID; }
+    void SetModelID(std::uint32_t dwModelID) { m_dwModelID = dwModelID; }
 
     RwObject* GetRwObject() { return m_pInterface ? m_pInterface->pRwObject : NULL; }
 
@@ -499,6 +499,6 @@ public:
 
 private:
     void CopyStreamingInfoFromModel(ushort usCopyFromModelID);
-    void RwSetSupportedUpgrades(RwFrame* parent, DWORD dwModel);
+    void RwSetSupportedUpgrades(RwFrame* parent, std::uint32_t dwModel);
     void SetModelSpecialType(eModelSpecialType eType, bool bState);
 };
