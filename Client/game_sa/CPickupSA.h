@@ -26,7 +26,7 @@ public:
     float               CurrentValue;                      // For the revenue pickups  0
     CObjectSAInterface* pObject;                           // 4
     long                MonetaryValue;                     // 8
-    Duint32_t               RegenerationTime;                  // 12
+    uint32_t               RegenerationTime;                  // 12
     short               CoorsX, CoorsY, CoorsZ;            // 16 // 18 // 20
     uint32_t                MoneyPerDay;                       // 22
     uint32_t                MI;                                // 24
@@ -57,7 +57,7 @@ public:
     void         SetType(PickupType type);
     float        GetCurrentValue();
     void         SetCurrentValue(float fCurrentValue);
-    void         SetRegenerationTime(Duint32_t dwTime);
+    void         SetRegenerationTime(uint32_t dwTime);
     void         SetMoneyPerDay(uint32_t wMoneyPerDay);
     uint32_t         GetMoneyPerDay();
     uint32_t         GetModel();
