@@ -4,7 +4,7 @@
  *  LICENSE:     See LICENSE in the top level directory
  *  FILE:        game_sa/CPickupsSA.cpp
  *  PURPOSE:     Pickup manager
- *
+ *f
  *  Multi Theft Auto is available from https://www.multitheftauto.com/
  *
  *****************************************************************************/
@@ -130,7 +130,7 @@ CPickup* CPickupsSA::CreatePickup(CVector* position, DWORD ModelIndex, PickupTyp
         pickup->SetType(PickupType::PICKUP_NAUTICAL_MINE_INACTIVE);
         pickup->GetInterface()->RegenerationTime = pGame->GetSystemTime() + 1500;            // Mines get activated after 2 secs
     }
-    pickup->SetModel((WORD)ModelIndex);
+    pickup->SetModel(ModelIndex);
 
     // All pickups get generated at the coordinates that we get in from the
     // script. This way the level designers can create them floating in mid-air
