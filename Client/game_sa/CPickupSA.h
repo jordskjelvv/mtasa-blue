@@ -26,11 +26,11 @@ public:
     float               CurrentValue;                      // For the revenue pickups  0
     CObjectSAInterface* pObject;                           // 4
     long                MonetaryValue;                     // 8
-    DWORD               RegenerationTime;                  // 12
+    Duint32_t               RegenerationTime;                  // 12
     short               CoorsX, CoorsY, CoorsZ;            // 16 // 18 // 20
-    WORD                MoneyPerDay;                       // 22
-    WORD                MI;                                // 24
-    WORD                ReferenceIndex;                    // 26
+    uint32_t                MoneyPerDay;                       // 22
+    uint32_t                MI;                                // 24
+    uint32_t                ReferenceIndex;                    // 26
     BYTE                Type;                              // 28
     BYTE                State : 1;                         // 29
     BYTE                bNoAmmo : 1;
@@ -57,11 +57,11 @@ public:
     void         SetType(PickupType type);
     float        GetCurrentValue();
     void         SetCurrentValue(float fCurrentValue);
-    void         SetRegenerationTime(DWORD dwTime);
-    void         SetMoneyPerDay(WORD wMoneyPerDay);
-    WORD         GetMoneyPerDay();
-    WORD         GetModel();
-    void         SetModel(WORD wModelIndex);            // do not export
+    void         SetRegenerationTime(Duint32_t dwTime);
+    void         SetMoneyPerDay(uint32_t wMoneyPerDay);
+    uint32_t         GetMoneyPerDay();
+    uint32_t         GetModel();
+    void         SetModel(uint32_t wModelIndex);            // do not export
     PickupState GetState();
     void         SetState(PickupState bState);
     BYTE         GetAmmo();
