@@ -47,7 +47,7 @@ public:
     void DeleteAllVehicles();
 
     // Objects pool
-    CObject* AddObject(CClientObject* pClientObject, DWORD dwModelID, bool bLowLod, bool bBreakingDisabled);
+    CObject* AddObject(CClientObject* pClientObject, std::uint32_t dwModelID, bool bLowLod, bool bBreakingDisabled);
 
 private:
     bool AddObjectToPool(CClientObject* pClientObject, CObjectSA* pObject);
@@ -60,7 +60,7 @@ public:
     void                      DeleteAllObjects();
 
     // Peds pool
-    CPed* AddPed(CClientPed* pClientPed, unsigned int nModelIndex);
+    CPed* AddPed(CClientPed* pClientPed, std::uint32_t nModelIndex);
     CPed* AddPed(CClientPed* pClientPed, DWORD* pGameInterface);
 
 private:
@@ -77,15 +77,15 @@ public:
 
     CEntity*       GetEntity(DWORD* pGameInterface);
     CClientEntity* GetClientEntity(DWORD* pGameInterface);
-    uint           GetModelIdFromClump(RpClump* pRpClump);
+    std::uint32_t           GetModelIdFromClump(RpClump* pRpClump);
 
     // Others
     CVehicle* AddTrain(CClientVehicle* pClientVehicle, const CVector& vecPosition, std::vector<DWORD> models, bool bDirection,
                        std::uint8_t ucTrackId = 255) noexcept;
 
-    DWORD GetPedPoolIndex(std::uint8_t* pInterface);
-    DWORD GetVehiclePoolIndex(std::uint8_t* pInterfacee);
-    DWORD GetObjectPoolIndex(std::uint8_t* pInterface);
+    std::uint32_t GetPedPoolIndex(std::uint8_t* pInterface);
+    std::uint32_t GetVehiclePoolIndex(std::uint8_t* pInterfacee);
+    std::uint32_t GetObjectPoolIndex(std::uint8_t* pInterface);
 
     int  GetNumberOfUsedSpaces(ePools pools);
     int  GetPoolDefaultCapacity(ePools pool);
