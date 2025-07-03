@@ -91,5 +91,6 @@ private:
 
     static void* (&ms_pStreamingBuffer)[2];
     static uint32(&ms_streamingHalfOfBufferSizeBlocks);
-    static CStreamingInfo (&ms_aInfoForModel)[26316];            // count: 26316 in unmodified game
+    static CStreamingInfo* ms_aInfoForModel;
+    static std::uint32_t ms_aInfoForModelCount;         // count: 26316 in unmodified game
 };
