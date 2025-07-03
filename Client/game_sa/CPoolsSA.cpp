@@ -73,7 +73,7 @@ inline bool CPoolsSA::AddVehicleToPool(CClientVehicle* pClientVehicle, CVehicleS
     return true;
 }
 
-CVehicle* CPoolsSA::AddVehicle(CClientVehicle* pClientVehicle, std::uint16_t model, std::uint8_t variation, std::uint8_t variation2) noexcept
+CVehicle* CPoolsSA::AddVehicle(CClientVehicle* pClientVehicle, std::uint32_t model, std::uint8_t variation, std::uint8_t variation2) noexcept
 {
     if (m_vehiclePool.ulCount >= MAX_VEHICLES)
         return nullptr;
@@ -236,7 +236,7 @@ inline bool CPoolsSA::AddObjectToPool(CClientObject* pClientObject, CObjectSA* p
     return true;
 }
 
-CObject* CPoolsSA::AddObject(CClientObject* pClientObject, DWORD dwModelID, bool bLowLod, bool bBreakingDisabled)
+CObject* CPoolsSA::AddObject(CClientObject* pClientObject, std::uint32_t dwModelID, bool bLowLod, bool bBreakingDisabled)
 {
     CObjectSA* pObject = NULL;
 
@@ -657,7 +657,7 @@ CVehicle* CPoolsSA::AddTrain(CClientVehicle* pClientVehicle, const CVector& vecP
     return train.release();
 }
 
-DWORD CPoolsSA::GetPedPoolIndex(std::uint8_t* pInterface)
+std::uint32_t CPoolsSA::GetPedPoolIndex(std::uint8_t* pInterface)
 {
     DWORD         dwAlignedSize = 1988;
     std::uint8_t* pTheObjects = (std::uint8_t*)(*m_ppPedPoolInterface)->m_pObjects;
@@ -669,7 +669,7 @@ DWORD CPoolsSA::GetPedPoolIndex(std::uint8_t* pInterface)
     return ((pInterface - pTheObjects) / dwAlignedSize); 
 }
 
-DWORD CPoolsSA::GetVehiclePoolIndex(std::uint8_t* pInterface)
+std::uint32_t CPoolsSA::GetVehiclePoolIndex(std::uint8_t* pInterface)
 {
     DWORD         dwAlignedSize = 2584;
     std::uint8_t* pTheObjects = (std::uint8_t*)(*m_ppVehiclePoolInterface)->m_pObjects;
@@ -681,7 +681,7 @@ DWORD CPoolsSA::GetVehiclePoolIndex(std::uint8_t* pInterface)
     return ((pInterface - pTheObjects) / dwAlignedSize);
 }
 
-DWORD CPoolsSA::GetObjectPoolIndex(std::uint8_t* pInterface)
+std::uint32_t CPoolsSA::GetObjectPoolIndex(std::uint8_t* pInterface)
 {
     DWORD         dwAlignedSize = 412;
     std::uint8_t* pTheObjects = (std::uint8_t*)(*m_ppObjectPoolInterface)->m_pObjects;
