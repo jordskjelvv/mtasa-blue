@@ -63,6 +63,12 @@ bool IsUpgradeModelId(DWORD dwModelID)
 
 CStreamingSA::CStreamingSA()
 {
+        // Увеличиваем лимит ms_aInfoForModel при FLA / кастомных лимитах
+    ms_aInfoForModelCount = 131072; // или твой желаемый лимит
+    ms_aInfoForModel = new CStreamingInfo[ms_aInfoForModelCount];
+
+    // Патчим адрес GTA SA
+    WriteMemory(0x8E4CC0, &ms_aInfoForModel, true);
     // Allocate the default number of archives in order to keep modded games working as before.
     SetArchivesNum(VAR_DefaultMaxArchives);
 
