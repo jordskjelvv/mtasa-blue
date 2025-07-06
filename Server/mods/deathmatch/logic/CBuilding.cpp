@@ -118,7 +118,7 @@ bool CBuilding::ReadSpecialData(const int iLine)
         }
 
         // Set the building id
-        m_model = static_cast<unsigned short>(iTemp);
+        m_model = static_cast<uint32_t>(iTemp);
     }
     else
     {
