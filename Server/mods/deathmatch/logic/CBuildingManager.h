@@ -32,7 +32,7 @@ public:
     CBuildingListType::const_iterator IterBegin() const noexcept { return m_List.begin(); }
     CBuildingListType::const_iterator IterEnd() const noexcept { return m_List.end(); }
 
-    static bool IsValidModel(unsigned long ulObjectModel);
+    static bool IsValidModel(std::uint32_t ulObjectModel);
     static bool IsValidPosition(const CVector& pos) noexcept;
 
 private:
