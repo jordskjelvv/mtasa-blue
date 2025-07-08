@@ -44,8 +44,8 @@ public:
     void GetMatrix(CMatrix& matrix) override;
     void SetMatrix(const CMatrix& matrix) override;
 
-    std::uint16_t GetModel() const noexcept { return m_model; }
-    void          SetModel(std::uint16_t model) noexcept { m_model = model; }
+    std::uint32_t GetModel() const noexcept { return m_model; }
+    void          SetModel(std::uint32_t model) noexcept { m_model = model; }
 
     bool GetCollisionEnabled() const noexcept { return m_bCollisionsEnabled; }
     void SetCollisionEnabled(bool bCollisionEnabled) noexcept { m_bCollisionsEnabled = bCollisionEnabled; }
@@ -62,7 +62,7 @@ protected:
 private:
     CBuildingManager* m_pBuildingManager;
     CVector           m_vecRotation;
-    std::uint16_t     m_model;
+    std::uint32_t     m_model;
 
 protected:
     bool m_bCollisionsEnabled;
