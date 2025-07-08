@@ -56,7 +56,7 @@ void CBuildingManager::DeleteAll()
     DeletePointersAndClearList(m_List);
 }
 
-bool CBuildingManager::IsValidModel(unsigned long ulObjectModel)
+bool CBuildingManager::IsValidModel(std::uint32_t ulObjectModel)
 {
     // We are using the same list
     return CObjectManager::IsValidModel(ulObjectModel);
