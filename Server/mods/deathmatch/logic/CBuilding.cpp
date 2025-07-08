@@ -24,7 +24,7 @@ CBuilding::CBuilding(CElement* pParent, CBuildingManager* pBuildingManager) : CE
     SetTypeName("buidling");
 
     m_pBuildingManager = pBuildingManager;
-    m_model = 0xFFFF;
+    m_model = 0xFFFFFFFF;
     m_bDoubleSided = false;
     m_bCollisionsEnabled = true;
     m_pLowLodBuilding = nullptr;
