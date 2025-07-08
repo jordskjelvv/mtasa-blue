@@ -18,14 +18,14 @@ CBuildingRemovalManager::CBuildingRemovalManager()
 
 CBuildingRemovalManager::~CBuildingRemovalManager()
 {
-    for (std::multimap<unsigned short, CBuildingRemoval*>::const_iterator iter = m_BuildingRemovals.begin(); iter != m_BuildingRemovals.end(); iter++)
+    for (std::multimap<std::uint32_t, CBuildingRemoval*>::const_iterator iter = m_BuildingRemovals.begin(); iter != m_BuildingRemovals.end(); iter++)
     {
         if ((*iter).second)
             delete (*iter).second;
     }
 }
 
-void CBuildingRemovalManager::CreateBuildingRemoval(unsigned short usModel, float fRadius, const CVector& vecPos, char cInterior)
+void CBuildingRemovalManager::CreateBuildingRemoval(std::uint32_t usModel, float fRadius, const CVector& vecPos, char cInterior)
 {
     // Check if this removal has already been covered
     std::pair<std::multimap<unsigned short, CBuildingRemoval*>::iterator, std::multimap<unsigned short, CBuildingRemoval*>::iterator> iterators =
@@ -64,7 +64,7 @@ void CBuildingRemovalManager::ClearBuildingRemovals()
     m_BuildingRemovals.clear();
 }
 
-void CBuildingRemovalManager::RestoreWorldModel(unsigned short usModel, float fRadius, const CVector& vecPos, char cInterior)
+void CBuildingRemovalManager::RestoreWorldModel(std::uint32_t usModel, float fRadius, const CVector& vecPos, char cInterior)
 {
     CBuildingRemoval*                                                                                                                 pFind = NULL;
     std::pair<std::multimap<unsigned short, CBuildingRemoval*>::iterator, std::multimap<unsigned short, CBuildingRemoval*>::iterator> iterators =
